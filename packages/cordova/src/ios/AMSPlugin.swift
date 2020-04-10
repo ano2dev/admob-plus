@@ -1,5 +1,7 @@
 @objc(AMSPlugin)
 class AMSPlugin: CDVPlugin {
+
+    ///https://developers.google.com/admob/ios/quick-start
     static let testApplicationID = "ca-app-pub-3940256099942544~1458002511"
 
     var readyCallbackId: String!
@@ -69,6 +71,7 @@ class AMSPlugin: CDVPlugin {
             let id = opts.value(forKey: "id") as? Int,
             let adUnitID = opts.value(forKey: "adUnitID") as? String,
             let position = opts.value(forKey: "position") as? String,
+            let overLap = opts.value(forKey: "isOverLap") as? Bool,
             var banner = AMSAdBase.ads[id] as? AMSBanner?
             else {
                 let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: false)
@@ -77,9 +80,9 @@ class AMSPlugin: CDVPlugin {
         }
         if banner == nil {
             let adSize = getAdSize(opts)
-            banner = AMSBanner(id: id, adUnitID: adUnitID, adSize: adSize, position: position)
+            banner = AMSBanner(id: id, adUnitID: adUnitID, adSize: adSize, position: position, overLap: overLap)
         }
-        banner!.show(request: createGADRequest(opts))
+        banner!.show(request: createGADRequest(opts), position: position )
 
         let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: true)
         self.commandDelegate!.send(result, callbackId: command.callbackId)
