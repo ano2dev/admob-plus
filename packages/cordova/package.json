@@ -1,5 +1,5 @@
 {
-  "name": "cordova-admob-plus",
+  "name": "cordova-admob-plus-fork",
   "version": "0.35.0",
   "description": "Trustable Google AdMob Cordova Plugin",
   "main": "www/admob.js",
@@ -57,7 +57,7 @@
     "admobpro"
   ],
   "cordova": {
-    "id": "cordova-admob-plus",
+    "id": "cordova-admob-plus-fork",
     "platforms": [
       "android",
       "ios"
