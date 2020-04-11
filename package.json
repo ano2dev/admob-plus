@@ -1,5 +1,5 @@
 {
-  "name": "admob-plus-monorepo-fork",
+  "name": "admob-plus-monorepo",
   "private": false,
   "scripts": {
     "test": "run-s test:*",
