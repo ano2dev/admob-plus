@@ -237,6 +237,16 @@ class AMSPlugin: CDVPlugin {
             default: break
             }
         }
+
+        let adBannerOrientation = opts.value(forKey: "adBannerOrientation") as? String
+        if adBannerOrientation == "portrait" {
+            print("adBannerOrientation :  Portrait")
+            return kGADAdSizeSmartBannerPortrait
+        }else if adBannerOrientation == "landscape" {
+             print("adBannerOrientation :  Landscape")
+            return kGADAdSizeSmartBannerLandscape
+        }
+
         guard let adSizeDict = opts.value(forKey: "size") as? NSDictionary,
             let width = adSizeDict.value(forKey: "width") as? Int,
             let height = adSizeDict.value(forKey: "height") as? Int
